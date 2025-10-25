@@ -1,6 +1,6 @@
 # 🐍 Python Django Приложение — Практическая работа
 
-!(https://blueshelltech.com/media/2021/05/python-django.jpg)
+![](https://blueshelltech.com/media/2021/05/python-django.jpg)
 
 > _"Практика — основа мастерства в программировании."_ 💬
 
