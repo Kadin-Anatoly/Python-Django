@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Последние статьи</h1>
+
+    {% for post in posts %}
+        <article class="post-card">
+            {% if post.image %}
+                <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
+            <div class="post-body">
+                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                <p class="post-meta">
+                    <a href="{% url 'blog:category_posts' post.category.slug %}">{{ post.category.name }}</a>
+                    · {{ post.published_at|date:'d.m.Y H:i' }}
+                </p>
+                <p>{{ post.text|truncatewords:40 }}</p>
+            </div>
+        </article>
+    {% empty %}
+        <p>Статей пока нет. Зайдите в <a href="/admin/">админку</a> и добавьте первую статью.</p>
+    {% endfor %}
+{% endblock %}
